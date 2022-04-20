@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "news",
+  "collectionName": "profiles",
   "info": {
-    "singularName": "news-item",
-    "pluralName": "news",
-    "displayName": "Новости",
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile",
     "description": ""
   },
   "options": {
@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "shortDesc": {
-      "type": "string"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -29,16 +23,17 @@
         "audios"
       ]
     },
-    "date": {
-      "type": "date"
-    },
-    "fullDesc": {
-      "type": "text"
-    },
-    "author": {
+    "user": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::author.author"
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "profile"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "username": {
+      "type": "string"
     }
   }
 }
